@@ -45,5 +45,29 @@
     <p>Integer in faucibus neque, at tincidunt ex. Etiam dapibus, ipsum ut convallis vehicula, libero eros maximus libero.</p>
     <a href="photos.html">Go to Photos →</a>
   </section>
+
+  <script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll('.section');
+    const header = document.querySelector('header');
+
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('visible');
+      });
+
+      // Header style on scroll
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
