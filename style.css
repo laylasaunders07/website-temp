@@ -9,7 +9,7 @@
 
 /* Background */
 body {
-  background: linear-gradient(135deg, #d9e4ec, #f8fbfd, #e6dffc, #d7f8ec);
+  background: linear-gradient(135deg, #f8fbfd, #f8fbfd, #e6dffc, #d7f8ec);
   background-size: 400% 400%; /* larger for movement */
   background-attachment: fixed; /* smooth on scroll */
   color: #222;
