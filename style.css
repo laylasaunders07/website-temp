@@ -195,6 +195,46 @@ main.inner-page .section:first-of-type {
   margin-top: 7rem;
 }
 
+/* Grid layout for social links */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Base style for all social links */
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition: all 0.3s ease;
+}
+
+/* Active links (highlighted) */
+.social-link.active {
+  background: rgba(255, 255, 255, 0.7);
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.social-link.active:hover {
+  transform: translateY(-3px);
+}
+
+/* Inactive links (dimmed) */
+.social-link.inactive {
+  background: rgba(255, 255, 255, 0.3);
+  color: #666;
+  opacity: 0.6;
+  pointer-events: none; /* disable clicks */
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
