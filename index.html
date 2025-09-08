@@ -25,17 +25,17 @@
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    // Keep within smooth range of gradient
-    const min = 40; // % start
-    const max = 80; // % end
+    // Stronger range for scroll-based movement
+    const min = 35;
+    const max = 85;
     const posX = min + scrollPercent * (max - min);
     const posY = min + scrollPercent * (max - min);
 
+    // Apply with a slight "boost" effect
     body.style.backgroundPosition = `${posX}% ${posY}%`;
   };
 
   window.addEventListener("scroll", updateBackground);
-  window.addEventListener("load", updateBackground);
 </script>
   
   <section class="hero">
