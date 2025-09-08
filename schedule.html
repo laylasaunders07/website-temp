@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Schedule</title>
+  <title>Layla - Schedule</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -44,5 +44,27 @@
       </iframe>
     </section>
   </main>
+
+  <!-- Background gradient movement -->
+  <script>
+    const body = document.body;
+  
+    const updateBackground = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+  
+      // Keep within smooth range of gradient
+      const min = 01; // % start
+      const max = 80; // % end
+      const posX = min + scrollPercent * (max - min);
+      const posY = min + scrollPercent * (max - min);
+  
+      body.style.backgroundPosition = `${posX}% ${posY}%`;
+    };
+  
+    window.addEventListener("scroll", updateBackground);
+    window.addEventListener("load", updateBackground);
+  </script>
 </body>
 </html>
