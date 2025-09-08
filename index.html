@@ -1,73 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Home</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="social.html">Social</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="gifts.html">Gifts</a>
-      <a href="photos.html">Photos</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>Welcome to My Portfolio</h1>
-    <p>A sleek showcase styled in iOS liquid glass.</p>
-  </section>
-
-  <section class="section" id="social">
+<section class="section" id="social">
+  <div class="card">
     <h2>Social</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis urna et nunc vehicula, in ultrices nunc blandit.</p>
     <a href="social.html">Go to Social →</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="schedule">
+<section class="section" id="schedule">
+  <div class="card">
     <h2>Schedule</h2>
     <p>Curabitur ullamcorper dui nec tristique aliquet. Pellentesque in nunc nec quam consectetur iaculis.</p>
     <a href="schedule.html">Go to Schedule →</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="gifts">
+<section class="section" id="gifts">
+  <div class="card">
     <h2>Gifts</h2>
     <p>Aliquam sit amet feugiat magna. Suspendisse potenti. Duis vitae mauris et arcu convallis condimentum.</p>
     <a href="gifts.html">Go to Gifts →</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="photos">
+<section class="section" id="photos">
+  <div class="card">
     <h2>Photos</h2>
     <p>Integer in faucibus neque, at tincidunt ex. Etiam dapibus, ipsum ut convallis vehicula, libero eros maximus libero.</p>
     <a href="photos.html">Go to Photos →</a>
-  </section>
-
-  <script>
-    // Fade-in sections on scroll
-    const sections = document.querySelectorAll('.section');
-    const header = document.querySelector('header');
-
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < trigger) section.classList.add('visible');
-      });
-
-      // Header style on scroll
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
-</body>
-</html>
+  </div>
+</section>
