@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Social</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="social.html" class="active">Social</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="gifts.html">Gifts</a>
+      <a href="photos.html">Photos</a>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main>
+    <section class="section visible">
+      <h2>Social</h2>
+      <p>
+        This is the Social page template. You can use this space to add links 
+        to your social media profiles, embed posts, or write updates. 
+        The design follows the same glassmorphism style as the homepage 
+        so everything feels consistent.
+      </p>
+    </section>
+  </main>
+
+  <!-- Background gradient movement -->
+  <script>
+    const body = document.body;
+
+    const updateBackground = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      // Keep within smooth gradient range
+      const min = 40;
+      const max = 80;
+      const posX = min + scrollPercent * (max - min);
+      const posY = min + scrollPercent * (max - min);
+
+      body.style.backgroundPosition = `${posX}% ${posY}%`;
+    };
+
+    window.addEventListener("scroll", updateBackground);
+    window.addEventListener("load", updateBackground);
+  </script>
+</body>
+</html>
