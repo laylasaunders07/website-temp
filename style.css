@@ -9,22 +9,19 @@
 
 /* Background */
 body {
-  background: linear-gradient(135deg, #d9e4ec, #f8fbfd, #e6dffc, #d7f8ec);
-  background-size: 400% 400%;
+  background: linear-gradient(
+    135deg,
+    #e5d4f9,  /* soft purple instead of white */
+    #f8fbfd,  /* light blue/white */
+    #d7f8ec,  /* mint green */
+    #e6dffc   /* lavender */
+  );
+  background-size: 400% 400%; /* for scroll movement */
   background-attachment: fixed;
   color: #222;
   min-height: 100vh;
   overflow-x: hidden;
-
-  /* Smooth animated loop */
-  animation: gradientLoop 30s ease infinite;
-}
-
-/* Gentle looping movement */
-@keyframes gradientLoop {
-  0%   { background-position: 40% 40%; }
-  50%  { background-position: 60% 60%; }
-  100% { background-position: 40% 40%; }
+  transition: background-position 0.2s linear;
 }
 
 /* iOS Glass Header */
