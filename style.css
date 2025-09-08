@@ -10,12 +10,12 @@
 /* Background */
 body {
   background: linear-gradient(135deg, #d9e4ec, #f8fbfd, #e6dffc, #d7f8ec);
-  background-size: 400% 400%; /* larger for movement */
-  background-attachment: fixed; /* smooth on scroll */
-  color: #222;
+  background-size: 400% 400%;
+  background-attachment: fixed;
   min-height: 100vh;
+  color: #222;
   overflow-x: hidden;
-  transition: background-position 0.2s linear;
+  animation: gradientLoop 20s ease infinite; /* smooth looping */
 }
 
 /* iOS Glass Header */
@@ -233,6 +233,13 @@ main.inner-page .section:first-of-type {
   color: #666;
   opacity: 0.6;
   pointer-events: none; /* disable clicks */
+}
+
+/* Looping gradient animation */
+@keyframes gradientLoop {
+  0%   { background-position: 40% 40%; }
+  50%  { background-position: 60% 60%; }
+  100% { background-position: 40% 40%; }
 }
 
 /* Animations */
