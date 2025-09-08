@@ -190,6 +190,11 @@ nav a:hover:not(.active) {
   color: #0051c7;
 }
 
+/* Extra breathing room for non-home pages */
+main.inner-page .section:first-of-type {
+  margin-top: 7rem;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
