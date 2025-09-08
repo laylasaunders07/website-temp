@@ -53,21 +53,29 @@ nav {
 
 nav a {
   text-decoration: none;
-  font-size: 16px;   /* larger default size for desktop */
+  font-size: 16px;
   font-weight: 500;
   color: #222;
   padding: 8px 16px;
   border-radius: 24px;
-  transition: all 0.3s ease;
-  white-space: nowrap; /* prevent wrapping */
+  transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
-nav a:hover,
+/* Active tab (selected) stays flat */
 nav a.active {
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
+  transform: none; /* no lift */
 }
+
+/* Hover effect only applies if NOT active */
+nav a:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px); /* raise on hover */
+}
+
 
 /* Adjust spacing + text size on very small screens */
 @media (max-width: 400px) {
