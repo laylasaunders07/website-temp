@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Layla - Home</title>
+  <title>Portfolio - Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,17 +25,17 @@
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    // Stronger range for scroll-based movement
-    const min = 35;
-    const max = 85;
+    // Keep within smooth range of gradient
+    const min = 40; // % start
+    const max = 80; // % end
     const posX = min + scrollPercent * (max - min);
     const posY = min + scrollPercent * (max - min);
 
-    // Apply with a slight "boost" effect
     body.style.backgroundPosition = `${posX}% ${posY}%`;
   };
 
   window.addEventListener("scroll", updateBackground);
+  window.addEventListener("load", updateBackground);
 </script>
   
   <section class="hero">
