@@ -17,26 +17,26 @@
     </nav>
   </header>
 
-  <!-- Background gradient movement -->
-  <script>
-    const body = document.body;
+<script>
+  const body = document.body;
 
-    const updateBackground = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+  const updateBackground = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-      const min = 40;
-      const max = 80;
-      const posX = min + scrollPercent * (max - min);
-      const posY = min + scrollPercent * (max - min);
+    // Keep within smooth range of gradient
+    const min = 40; // % start
+    const max = 80; // % end
+    const posX = min + scrollPercent * (max - min);
+    const posY = min + scrollPercent * (max - min);
 
-      body.style.backgroundPosition = `${posX}% ${posY}%`;
-    };
+    body.style.backgroundPosition = `${posX}% ${posY}%`;
+  };
 
-    window.addEventListener("scroll", updateBackground);
-    window.addEventListener("load", updateBackground);
-  </script>
+  window.addEventListener("scroll", updateBackground);
+  window.addEventListener("load", updateBackground);
+</script>
   
   <section class="hero">
     <h1>Layla Saunders</h1>
@@ -66,5 +66,22 @@
     <p>Integer in faucibus neque, at tincidunt ex. Etiam dapibus, ipsum ut convallis vehicula, libero eros maximus libero.</p>
     <a href="photos.html">Go to Photos →</a>
   </section>
+
+  <script>
+  const body = document.body;
+
+  const updateBackground = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+    // Use scroll to nudge animation
+    const offset = scrollPercent * 20; // adjust intensity
+    body.style.backgroundPosition = `calc(50% + ${offset}px) calc(50% + ${offset}px)`;
+  };
+
+  window.addEventListener("scroll", updateBackground);
+</script>
+
 </body>
 </html>
