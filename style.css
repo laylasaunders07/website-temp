@@ -1,9 +1,104 @@
-/* Section container */
-.section {
-  padding: 6rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Background */
+body {
+  background: linear-gradient(135deg, #d9e4ec, #f8fbfd);
+  color: #222;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* iOS Glass Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 999;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Navigation Tabs */
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* Title Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #444;
+}
+
+/* Framed Info Sections */
+.section {
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 4rem auto;
+  text-align: center;
+
+  /* Glass card frame */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
@@ -14,42 +109,37 @@
   transform: translateY(0);
 }
 
-/* Glassmorphic card */
-.card {
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.45);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  padding: 2.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-}
-
-.card h2 {
+.section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.card p {
+.section p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   color: #333;
 }
 
-.card a {
+.section a {
   color: #007aff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.card a:hover {
+.section a:hover {
   text-decoration: underline;
   color: #0051c7;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
