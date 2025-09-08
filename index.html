@@ -17,6 +17,25 @@
     </nav>
   </header>
 
+<script>
+  const body = document.body;
+
+  const updateBackground = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = scrollTop / docHeight;
+
+    // Map scroll progress (0 → 1) to background movement
+    const posX = 50 + scrollPercent * 50; // 50% → 100%
+    const posY = 50 + scrollPercent * 50; // 50% → 100%
+
+    body.style.backgroundPosition = `${posX}% ${posY}%`;
+  };
+
+  window.addEventListener("scroll", updateBackground);
+  window.addEventListener("load", updateBackground);
+</script>
+  
   <section class="hero">
     <h1>Welcome to My Portfolio</h1>
     <p>A sleek showcase styled in iOS liquid glass.</p>
