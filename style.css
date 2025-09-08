@@ -13,34 +13,37 @@ body {
   color: #222;
   min-height: 100vh;
   overflow-x: hidden;
+  padding-top: 100px; /* space so nav doesn't overlap content */
 }
 
-/* iOS Glass Header */
+/* Floating Pill Header */
 header {
   position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  border-radius: 40px;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   z-index: 999;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Add a slightly stronger background on scroll */
 header.scrolled {
   background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
 }
 
 /* Navigation Tabs */
 nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
 }
 
 nav a {
@@ -49,11 +52,13 @@ nav a {
   font-weight: 500;
   color: #222;
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 20px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transform: translateY(-2px);
@@ -73,13 +78,13 @@ nav a:hover, nav a.active {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #111;
 }
 
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
   color: #444;
 }
@@ -91,7 +96,6 @@ nav a:hover, nav a.active {
   margin: 4rem auto;
   text-align: center;
 
-  /* Glass card frame */
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -110,12 +114,12 @@ nav a:hover, nav a.active {
 }
 
 .section h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
 }
 
 .section p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 1.5rem;
   color: #333;
 }
@@ -141,5 +145,45 @@ nav a:hover, nav a.active {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  header {
+    width: 90%;
+    padding: 6px 14px;
+  }
+
+  nav {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    width: 95%;
+  }
+
+  nav {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 4px 8px;
   }
 }
