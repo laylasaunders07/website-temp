@@ -33,6 +33,9 @@ header {
   box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   z-index: 999;
   transition: all 0.3s ease;
+
+  width: 90%;         /* responsive width */
+  max-width: 600px;   /* prevent stretching on large screens */
 }
 
 header.scrolled {
@@ -43,23 +46,37 @@ header.scrolled {
 /* Navigation Tabs */
 nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  justify-content: space-around; /* evenly space links */
+  width: 100%;
 }
 
 nav a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #222;
-  padding: 8px 16px;
+  padding: 8px 12px;
   border-radius: 24px;
   transition: all 0.3s ease;
+  white-space: nowrap; /* prevent wrapping */
 }
 
 nav a:hover, nav a.active {
   background: rgba(255, 255, 255, 0.7);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transform: translateY(-2px);
+}
+
+/* Adjust spacing on very small screens */
+@media (max-width: 400px) {
+  nav {
+    gap: 0.5rem;
+  }
+  nav a {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
 }
 
 /* Title Section */
