@@ -10,10 +10,10 @@
 /* Background */
 body {
   background: linear-gradient(135deg, #d9e4ec, #f8fbfd, #e6dffc, #d7f8ec);
-  background-size: 400% 400%;
-  background-attachment: fixed;
-  min-height: 100vh;
+  background-size: 400% 400%; /* larger for movement */
+  background-attachment: fixed; /* smooth on scroll */
   color: #222;
+  min-height: 100vh;
   overflow-x: hidden;
   transition: background-position 0.2s linear;
 }
