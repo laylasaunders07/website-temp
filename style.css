@@ -238,7 +238,9 @@ main.inner-page .section:first-of-type {
   background: rgba(255, 255, 255, 0.3);
   color: #666;
   opacity: 0.6;
-  pointer-events: none; /* disable clicks */
+}
+.social-link.inactive:hover {
+  transform: translateY(-3px);
 }
 
 /* Animations */
