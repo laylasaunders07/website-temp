@@ -3,187 +3,130 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
 /* Background */
+:root{
+  --pill-bg: rgba(255,255,255,0.45);
+  --pill-border: rgba(255,255,255,0.5);
+  --accent: #007aff;
+  --text: #111;
+}
 body {
-  background: linear-gradient(135deg, #d9e4ec, #f8fbfd);
-  color: #222;
+  background: linear-gradient(135deg, #e6eef6 0%, #f9fbfd 100%);
+  color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
-  padding-top: 100px; /* space so nav doesn't overlap content */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-top: 88px; /* room for floating pill */
 }
 
-/* Floating Pill Header */
+/* Floating Pill Container */
 header {
   position: fixed;
-  top: 20px;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 8px 20px;
-  border-radius: 40px;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-  z-index: 999;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1100;
+  width: min(960px, calc(100% - 40px));
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* allow nav children to opt-in */
 }
 
-/* Add a slightly stronger background on scroll */
-header.scrolled {
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+/* the visible pill shape */
+.nav-pill {
+  pointer-events: auto; /* children clickable */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.46));
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid var(--pill-border);
+  box-shadow: 0 10px 30px rgba(20,24,32,0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  max-width: 100%;
+  gap: 6px;
 }
 
-/* Navigation Tabs */
+/* shrink slightly when scrolled to feel responsive */
+header.scrolled .nav-pill {
+  transform: translateY(-4px) scale(0.99);
+  box-shadow: 0 14px 40px rgba(20,24,32,0.14);
+}
+
+/* Nav inside pill */
 nav {
   display: flex;
-  gap: 1.2rem;
-  flex-wrap: nowrap;
+  gap: 6px;
+  padding: 6px;
 }
 
+/* Individual tab buttons (pill within the pill) */
 nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  color: #222;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: transform 180ms cubic-bezier(.2,.9,.2,1), box-shadow 180ms ease, background 180ms ease;
+  position: relative;
+  user-select: none;
   white-space: nowrap;
+  backdrop-filter: none; /* inner pills stay visible */
 }
 
-nav a:hover,
+/* default subtle hover */
+nav a:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(20,24,32,0.12);
+}
+
+/* active tab */
 nav a.active {
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.88));
+  color: var(--text);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08), inset 0 -1px 0 rgba(0,0,0,0.03);
   transform: translateY(-2px);
 }
 
-/* Title Section */
+/* subtle badge/outline for active */
+nav a.active::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.02) inset;
+  pointer-events: none;
+}
+
+/* small-screen wrap / overflow handling */
+@media (max-width: 560px) {
+  header { top: 12px; padding-left: 12px; padding-right: 12px; }
+  .nav-pill { gap: 4px; padding: 6px; }
+  nav a { font-size: 13px; padding: 6px 10px; }
+}
+
+/* rest of site styling (cards + hero + animations) */
+
+/* Title Section (hero) */
 .hero {
-  height: 100vh;
+  height: calc(100vh - 88px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
   padding: 2rem;
-  opacity: 0;
-  animation: fadeInUp 1.2s ease forwards;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #111;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  color: #444;
-}
-
-/* Framed Info Sections */
-.section {
-  padding: 4rem 2rem;
-  max-width: 800px;
-  margin: 4rem auto;
-  text-align: center;
-
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.section p {
-  font-size: 1.05rem;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-.section a {
-  color: #007aff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.section a:hover {
-  text-decoration: underline;
-  color: #0051c7;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  header {
-    width: 90%;
-    padding: 6px 14px;
-  }
-
-  nav {
-    gap: 0.8rem;
-  }
-
-  nav a {
-    font-size: 14px;
-    padding: 5px 10px;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    width: 95%;
-  }
-
-  nav {
-    gap: 0.5rem;
-  }
-
-  nav a {
-    font-size: 13px;
-    padding: 4px 8px;
-  }
-}
+  opacity:
