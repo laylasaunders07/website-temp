@@ -124,6 +124,21 @@ nav a:hover, nav a.active {
   transition: all 0.8s ease;
 }
 
+/* Responsive padding on smaller screens */
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 1.5rem; /* slightly reduced padding */
+    margin: 3rem 1rem;    /* ensure margin from screen edges */
+  }
+}
+
+@media (max-width: 400px) {
+  .section {
+    padding: 2rem 1rem; /* minimal padding but not cramped */
+    margin: 2rem 0.5rem;
+  }
+}
+
 .section.visible {
   opacity: 1;
   transform: translateY(0);
