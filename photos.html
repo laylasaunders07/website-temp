@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="social.html">Social</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="photos.html">Photos</a>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main class="inner-page">
+    <section class="section visible">
+      <h2>Photos</h2>
+      <p>
+        Welcome to the Photos page. Here you can introduce yourself, 
+        explain the purpose of your portfolio, or share your story. 
+        This section uses the same glassmorphism card style to stay 
+        consistent with the rest of the site.
+      </p>
+    </section>
+  </main>
+
+  <!-- Background gradient movement -->
+  <script>
+    const body = document.body;
+
+    const updateBackground = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      const min = 40;
+      const max = 80;
+      const posX = min + scrollPercent * (max - min);
+      const posY = min + scrollPercent * (max - min);
+
+      body.style.backgroundPosition = `${posX}% ${posY}%`;
+    };
+
+    window.addEventListener("scroll", updateBackground);
+    window.addEventListener("load", updateBackground);
+  </script>
+</body>
+</html>
