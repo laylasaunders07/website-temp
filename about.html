@@ -33,20 +33,23 @@
 
   <!-- Background gradient movement -->
   <script>
-  const body = document.body;
+    const body = document.body;
 
-  const updateBackground = () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+    const updateBackground = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-    // Use scroll to nudge animation
-    const offset = scrollPercent * 20; // adjust intensity
-    body.style.backgroundPosition = `calc(50% + ${offset}px) calc(50% + ${offset}px)`;
-  };
+      const min = 40;
+      const max = 80;
+      const posX = min + scrollPercent * (max - min);
+      const posY = min + scrollPercent * (max - min);
 
-  window.addEventListener("scroll", updateBackground);
-</script>
+      body.style.backgroundPosition = `${posX}% ${posY}%`;
+    };
 
+    window.addEventListener("scroll", updateBackground);
+    window.addEventListener("load", updateBackground);
+  </script>
 </body>
 </html>
