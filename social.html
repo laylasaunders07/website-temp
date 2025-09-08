@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Social</title>
+  <title>Portfolio - About</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,9 +11,9 @@
   <header>
     <nav>
       <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="social.html" class="active">Social</a>
       <a href="schedule.html">Schedule</a>
-      <a href="gifts.html">Gifts</a>
       <a href="photos.html">Photos</a>
     </nav>
   </header>
@@ -23,10 +23,10 @@
     <section class="section visible">
       <h2>Social</h2>
       <p>
-        This is the Social page template. You can use this space to add links 
-        to your social media profiles, embed posts, or write updates. 
-        The design follows the same glassmorphism style as the homepage 
-        so everything feels consistent.
+        Welcome to the About page. Here you can introduce yourself, 
+        explain the purpose of your portfolio, or share your story. 
+        This section uses the same glassmorphism card style to stay 
+        consistent with the rest of the site.
       </p>
     </section>
   </main>
@@ -40,7 +40,6 @@
       const docHeight = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-      // Keep within smooth gradient range
       const min = 40;
       const max = 80;
       const posX = min + scrollPercent * (max - min);
