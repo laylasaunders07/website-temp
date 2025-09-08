@@ -116,7 +116,7 @@ nav a:hover:not(.active) {
   color: #444;
 }
 
-/* Framed Info Sections */
+/* Default section */
 .section {
   padding: 4rem 2rem;
   max-width: 800px;
@@ -136,18 +136,26 @@ nav a:hover:not(.active) {
   transition: all 0.8s ease;
 }
 
-/* Responsive padding on smaller screens */
+/* Phones */
 @media (max-width: 600px) {
   .section {
-    padding: 3rem 1.5rem; /* slightly reduced padding */
-    margin: 3rem 1rem;    /* ensure margin from screen edges */
+    padding: 3rem 1.5rem;
+    margin: 3rem 1rem;
   }
 }
 
+/* Very small phones */
 @media (max-width: 400px) {
   .section {
-    padding: 2rem 1rem; /* minimal padding but not cramped */
+    padding: 2rem 1rem;
     margin: 2rem 0.5rem;
+  }
+}
+
+/* Tablets (portrait iPad, iPad mini, etc.) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .section {
+    margin: 4rem 2rem; /* add consistent side gap */
   }
 }
 
