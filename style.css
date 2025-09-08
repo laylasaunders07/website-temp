@@ -84,21 +84,12 @@ nav a:hover, nav a.active {
   color: #444;
 }
 
-/* Framed Info Sections */
+/* Info Sections */
 .section {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   max-width: 800px;
-  margin: 4rem auto;
+  margin: 0 auto;
   text-align: center;
-
-  /* Glass card frame */
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease;
@@ -143,4 +134,3 @@ nav a:hover, nav a.active {
     transform: translateY(0);
   }
 }
-
