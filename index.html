@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Home</title>
+  <title>Layla - Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -39,7 +39,7 @@
 </script>
   
   <section class="hero">
-    <h1>Welcome to My Portfolio</h1>
+    <h1>Layla Saunders</h1>
     <p>A sleek showcase styled in iOS liquid glass.</p>
   </section>
 
@@ -68,27 +68,20 @@
   </section>
 
   <script>
-    // Fade-in sections on scroll
-    const sections = document.querySelectorAll('.section');
-    const header = document.querySelector('header');
+  const body = document.body;
 
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < trigger) section.classList.add('visible');
-      });
+  const updateBackground = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
-      // Header style on scroll
-      if (window.scrollY > 20) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    };
+    // Use scroll to nudge animation
+    const offset = scrollPercent * 20; // adjust intensity
+    body.style.backgroundPosition = `calc(50% + ${offset}px) calc(50% + ${offset}px)`;
+  };
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
+  window.addEventListener("scroll", updateBackground);
+</script>
+
 </body>
 </html>
