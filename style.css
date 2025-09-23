@@ -245,7 +245,7 @@ main.inner-page .section:first-of-type {
 
 /* Photo Gallery */
 .gallery img {
-  max-width: 100%;   /* shrink to fit container width */
+  max-width: 600px;   /* shrink to fit container width */
   height: auto;      /* keep aspect ratio */
   display: block;    /* removes inline spacing */
   margin: 10px auto; /* center images with some spacing */
