@@ -244,11 +244,12 @@ main.inner-page .section:first-of-type {
 }
 
 /* Photo Gallery */
-.gallery img {
-  max-width: 600px;   /* shrink to fit container width */
-  height: auto;      /* keep aspect ratio */
-  display: block;    /* removes inline spacing */
-  margin: 10px auto; /* center images with some spacing */
+.section img,
+#gallery img {
+  display: block;
+  max-width: 100%;   /* keeps inside container */
+  height: auto;
+  margin: 10px auto;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
